@@ -27,7 +27,7 @@ class Bird:
     def get_rect(self):
         return pygame.Rect(self.x-self.radius,self.y-self.radius,self.radius*2,self.radius*2)
     
-    
+
     def draw(self,screen):
         pygame.draw.circle(screen,self.color,(self.x,self.y),self.radius)
 
@@ -45,7 +45,11 @@ class Pipe:
     def move(self):
         self.x-=self.SPEED
 
-
+    def get_rects(self):
+        top_rect=pygame.Rect(self.x,0,self.PIPE_WIDTH,self.top_height)
+        bottom_rect=pygame.Rect(self.x,self.bottom_y,self.PIPE_WIDTH,self.bottom_height)
+        return top_rect, bottom_rect 
+    
     def draw(self,screen):
         pygame.draw.rect(screen,(0,255,0),(self.x,0,self.PIPE_WIDTH,self.top_height))
         pygame.draw.rect(screen,(0,255,0),(self.x,self.bottom_y,self.PIPE_WIDTH,self.bottom_height))
@@ -70,6 +74,8 @@ def main():
         
         bird.move()
         
+        if bird.y+bird.radius>height or bird.y-bird.radius<0:
+            running=False
         for pipe in pipes:
          pipe.move()
          if pipes[-1].x<500:
@@ -78,11 +84,14 @@ def main():
          if pipes[0].x<-60:
                 pipes.pop(0)
 
-        bird_rect=pygame.Rect(bird.x-bird.radius,bird.y-bird.radius,bird.radius*2,bird.radius*2)
+        bird_rect=bird.get_rect()
+        top_rect,bottom_rect=pipes[0].get_rects() #why [0] in pipes[0].get_rects() instead of pipes.get_rects()?
         screen.fill((135,206,235))
         bird.draw(screen)
         for pipe in pipes:
             pipe.draw(screen)
+            if bird_rect.colliderect(top_rect) or bird_rect.colliderect(bottom_rect):
+                running=False
 
         pygame.display.update()
         clock.tick(fps)
