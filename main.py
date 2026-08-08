@@ -77,21 +77,22 @@ def main():
         if bird.y+bird.radius>height or bird.y-bird.radius<0:
             running=False
         for pipe in pipes:
-         pipe.move()
-         if pipes[-1].x<500:
-             pipes.append(Pipe(900))
+            pipe.move()
 
-         if pipes[0].x<-60:
-                pipes.pop(0)
+        if pipes[-1].x < 500:
+            pipes.append(Pipe(900))
 
-        bird_rect=bird.get_rect()
-        top_rect,bottom_rect=pipes[0].get_rects() #why [0] in pipes[0].get_rects() instead of pipes.get_rects()?
-        screen.fill((135,206,235))
+        if pipes[0].x < -60:
+            pipes.pop(0)
+
+        bird_rect = bird.get_rect()
+        screen.fill((135, 206, 235))
         bird.draw(screen)
         for pipe in pipes:
             pipe.draw(screen)
+            top_rect, bottom_rect = pipe.get_rects()
             if bird_rect.colliderect(top_rect) or bird_rect.colliderect(bottom_rect):
-                running=False
+                running = False
 
         pygame.display.update()
         clock.tick(fps)
