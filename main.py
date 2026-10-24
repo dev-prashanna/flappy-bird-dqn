@@ -1,107 +1,91 @@
-import random
+"""Play manually or watch a trained PPO policy in the identical simulator."""
+import argparse
+from pathlib import Path
 
-import pygame 
-import sys 
+import numpy as np
+import torch
 
-width, height =800, 600
-fps=60
-
-class Bird:
-
-    def __init__(self,x,y):
-        self.x=x
-        self.y=y
-        self.velocity=0
-        self.radius=15
-        self.color=(255,255,0)
-        self.gravity=0.5
-        self.jump_strength=-8
-
-    def jump(self):
-        self.velocity=self.jump_strength 
-
-    def move(self):
-        self.velocity+=self.gravity 
-        self.y+=self.velocity 
-
-    def get_rect(self):
-        return pygame.Rect(self.x-self.radius,self.y-self.radius,self.radius*2,self.radius*2)
-    
-
-    def draw(self,screen):
-        pygame.draw.circle(screen,self.color,(self.x,self.y),self.radius)
-
-class Pipe:
-    PIPE_WIDTH=60
-    GAP=150
-    SPEED=3
-
-    def __init__(self,x):
-        self.x=x
-        self.top_height=random.randint(100,400)
-        self.bottom_y=self.top_height+self.GAP
-        self.bottom_height=height-self.bottom_y
-
-    def move(self):
-        self.x-=self.SPEED
-
-    def get_rects(self):
-        top_rect=pygame.Rect(self.x,0,self.PIPE_WIDTH,self.top_height)
-        bottom_rect=pygame.Rect(self.x,self.bottom_y,self.PIPE_WIDTH,self.bottom_height)
-        return top_rect, bottom_rect 
-    
-    def draw(self,screen):
-        pygame.draw.rect(screen,(0,255,0),(self.x,0,self.PIPE_WIDTH,self.top_height))
-        pygame.draw.rect(screen,(0,255,0),(self.x,self.bottom_y,self.PIPE_WIDTH,self.bottom_height))
-    
+from flappyenv import EnvConfig, FlappyBirdEnv
+from ppo import load_policy
 
 
 def main():
-    pygame.init()
-    screen=pygame.display.set_mode((width, height))
-    clock=pygame.time.Clock()
-    bird=Bird(80,height//2)
-    pipes=[Pipe(700)]
-    running=True 
-
-    while running:
-        for event in pygame.event.get():
-            if event.type==pygame.QUIT:
-                running=False 
-            if event.type==pygame.KEYDOWN:
-                if event.key==pygame.K_SPACE:
-                    bird.jump()
-        
-        bird.move()
-        
-        if bird.y+bird.radius>height or bird.y-bird.radius<0:
-            running=False
-        for pipe in pipes:
-            pipe.move()
-
-        if pipes[-1].x < 500:
-            pipes.append(Pipe(900))
-
-        if pipes[0].x < -60:
-            pipes.pop(0)
-
-        bird_rect = bird.get_rect()
-        screen.fill((135, 206, 235))
-        bird.draw(screen)
-        for pipe in pipes:
-            pipe.draw(screen)
-            top_rect, bottom_rect = pipe.get_rects()
-            if bird_rect.colliderect(top_rect) or bird_rect.colliderect(bottom_rect):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--ai", action="store_true", help="Watch a saved PPO agent")
+    parser.add_argument("--model", default="models/ppo.pt")
+    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--stochastic", action="store_true", help="Sample policy actions instead of choosing the largest logit")
+    parser.add_argument("--fps", type=int, default=60, help="Playback speed in simulation frames per second")
+    parser.add_argument("--frames", type=int, default=None, help="Exit after N display frames (useful for a smoke test)")
+    args = parser.parse_args()
+    if args.fps <= 0 or (args.frames is not None and args.frames <= 0):
+        parser.error("fps and frames must be positive")
+    torch.set_num_threads(1)
+    torch.manual_seed(args.seed)
+    network, metadata = None, {}
+    if args.ai:
+        if not Path(args.model).is_file():
+            parser.error(f"No PPO checkpoint at {args.model}. Run: python train_net.py")
+        network, metadata = load_policy(args.model)
+    from renderer import Renderer, pygame
+    config = EnvConfig(**metadata.get("env_config", {}))
+    env = FlappyBirdEnv(config)
+    observations, _ = env.reset(seed=args.seed)
+    renderer = Renderer(config)
+    running, started, paused, done = True, args.ai, False, False
+    displayed = 0
+    try:
+        while running:
+            flap = False
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        running = False
+                    elif event.key == pygame.K_r:
+                        observations, _ = env.reset()
+                        done, started, paused = False, args.ai, False
+                    elif event.key == pygame.K_p and started and not done:
+                        paused = not paused
+                    elif event.key in (pygame.K_SPACE, pygame.K_UP):
+                        if done:
+                            observations, _ = env.reset()
+                            done = False
+                        started, flap = True, True
+                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                    if done:
+                        observations, _ = env.reset()
+                        done = False
+                    started, flap = True, True
+            if not running:
+                break
+            if started and not paused and not done:
+                action = int(flap)
+                if network is not None:
+                    with torch.no_grad():
+                        action = int(network.action_value(torch.as_tensor(np.asarray(observations))[None],
+                                                          deterministic=not args.stochastic)[0].item())
+                observations, _, term, trunc, _ = env.step(action)
+                done = term or trunc
+            overlay = None
+            if done:
+                overlay = [f"Flight complete: {env.score} pipes", "SPACE / click to retry", "R  restart    ESC  exit"]
+            elif paused:
+                overlay = ["Paused", "P  resume"]
+            elif not started:
+                overlay = ["Ready for takeoff", "SPACE / UP / click to flap", "P  pause    R  restart    ESC  exit"]
+            mode = "PPO / sampled actions" if args.stochastic else "PPO / greedy actions"
+            subtitle = (mode if args.ai else "Manual flight") + "     P: pause   R: restart   ESC: exit"
+            renderer.draw(env, subtitle, overlay)
+            renderer.clock.tick(args.fps)
+            displayed += 1
+            if args.frames and displayed >= args.frames:
                 running = False
-
-        pygame.display.update()
-        clock.tick(fps)
-
-    pygame.quit()
-    sys.exit()
+    finally:
+        env.close()
+        renderer.close()
 
 
-
-    
-if __name__=="__main__":
-    main()        
+if __name__ == "__main__":
+    main()

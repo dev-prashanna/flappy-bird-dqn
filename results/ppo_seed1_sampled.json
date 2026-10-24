@@ -1,0 +1,277 @@
+{
+  "policy": "ppo_sampled",
+  "episodes": 30,
+  "seed_start": 10000,
+  "env_config": {
+    "width": 800,
+    "height": 600,
+    "gravity": 0.5,
+    "flap_velocity": -8.0,
+    "max_fall_speed": 10.0,
+    "bird_x": 80.0,
+    "bird_radius": 15.0,
+    "pipe_width": 60.0,
+    "pipe_gap": 150.0,
+    "pipe_speed": 3.0,
+    "pipe_spacing": 260.0,
+    "first_pipe_x": 350.0,
+    "min_pipe_top": 80,
+    "max_pipe_top": 370,
+    "survival_reward": 0.1,
+    "pass_reward": 5.0,
+    "death_reward": -1.0,
+    "max_episode_steps": 6000
+  },
+  "mean_score": 28.766666666666666,
+  "std_score": 23.924714293445355,
+  "median_score": 23.0,
+  "min_score": 0,
+  "max_score": 68,
+  "mean_return": 402.69333333335936,
+  "mean_length": 2597.766666666667,
+  "survival_rate": 0.16666666666666666,
+  "results": [
+    {
+      "seed": 10000,
+      "score": 54,
+      "return": 747.7000000000645,
+      "length": 4788,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10001,
+      "score": 28,
+      "return": 392.6000000000134,
+      "length": 2537,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10002,
+      "score": 18,
+      "return": 255.89999999999367,
+      "length": 1670,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10003,
+      "score": 68,
+      "return": 940.0000000000921,
+      "length": 6000,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "seed": 10004,
+      "score": 68,
+      "return": 940.0000000000921,
+      "length": 6000,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "seed": 10005,
+      "score": 52,
+      "return": 720.2000000000605,
+      "length": 4613,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10006,
+      "score": 5,
+      "return": 76.09999999999997,
+      "length": 522,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10007,
+      "score": 12,
+      "return": 173.19999999999644,
+      "length": 1143,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10008,
+      "score": 40,
+      "return": 556.700000000037,
+      "length": 3578,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10009,
+      "score": 35,
+      "return": 487.9000000000271,
+      "length": 3140,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10010,
+      "score": 68,
+      "return": 940.0000000000921,
+      "length": 6000,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "seed": 10011,
+      "score": 2,
+      "return": 37.600000000000215,
+      "length": 287,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10012,
+      "score": 30,
+      "return": 419.70000000001727,
+      "length": 2708,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10013,
+      "score": 33,
+      "return": 459.60000000002293,
+      "length": 2957,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10014,
+      "score": 68,
+      "return": 940.0000000000921,
+      "length": 6000,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "seed": 10015,
+      "score": 2,
+      "return": 37.000000000000206,
+      "length": 281,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10016,
+      "score": 8,
+      "return": 119.69999999999834,
+      "length": 808,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10017,
+      "score": 55,
+      "return": 760.0000000000662,
+      "length": 4861,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10018,
+      "score": 0,
+      "return": 9.999999999999977,
+      "length": 111,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10019,
+      "score": 68,
+      "return": 940.0000000000921,
+      "length": 6000,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "seed": 10020,
+      "score": 39,
+      "return": 542.6000000000349,
+      "length": 3487,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10021,
+      "score": 24,
+      "return": 338.3000000000056,
+      "length": 2194,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10022,
+      "score": 15,
+      "return": 212.39999999999506,
+      "length": 1385,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10023,
+      "score": 13,
+      "return": 185.09999999999604,
+      "length": 1212,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10024,
+      "score": 19,
+      "return": 267.0999999999951,
+      "length": 1732,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10025,
+      "score": 4,
+      "return": 64.50000000000034,
+      "length": 456,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10026,
+      "score": 0,
+      "return": 10.399999999999975,
+      "length": 115,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10027,
+      "score": 22,
+      "return": 310.20000000000147,
+      "length": 2013,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10028,
+      "score": 1,
+      "return": 22.900000000000077,
+      "length": 190,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 10029,
+      "score": 12,
+      "return": 173.39999999999642,
+      "length": 1145,
+      "terminated": true,
+      "truncated": false
+    }
+  ],
+  "checkpoint": "models/ppo.pt",
+  "training_steps": 409600
+}

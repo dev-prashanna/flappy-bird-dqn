@@ -32,3 +32,9 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Generated training artifacts (the measured reference run lives in results/)
+runs/
+.pytest_cache/
+!paper/figures/*.png
+!paper/figures/*.pdf

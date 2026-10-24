@@ -1,0 +1,20 @@
+{
+  "models/ppo.pt": {
+    "sha256": "57579a2e8b040d7c400fd015696f0cd3365c44d82d1d0aca3a474acdc86c8bd7",
+    "seed": 1,
+    "global_step": 409600,
+    "validation_mean_score": 68.0
+  },
+  "models/ppo_seed2.pt": {
+    "sha256": "f3ca481dd89fe6e40cc3d5a7b9fef6c37a5125d495bd515cee33a155542babc6",
+    "seed": 2,
+    "global_step": 307200,
+    "validation_mean_score": 68.0
+  },
+  "models/ppo_seed3.pt": {
+    "sha256": "7eec06c954aa9631e40b4456ad264a159f3088d8fa992057757e345b163cf2ce",
+    "seed": 3,
+    "global_step": 512000,
+    "validation_mean_score": 68.0
+  }
+}

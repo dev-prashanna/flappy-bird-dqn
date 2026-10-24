@@ -1,0 +1,93 @@
+Training started at 2026-08-09 09:08:34
+Device: cpu
+Episodes: 3000, Epsilon decay: 0.998
+------------------------------------------------------------
+Episode: 0, Score: 0, Reward: 35.0, Epsilon: 0.9980, Best: 0, Steps: 41
+Episode: 10, Score: 0, Reward: 36.0, Epsilon: 0.9782, Best: 0, Steps: 467
+Episode: 20, Score: 0, Reward: 41.0, Epsilon: 0.9588, Best: 0, Steps: 888
+Episode: 30, Score: 0, Reward: 36.0, Epsilon: 0.9398, Best: 0, Steps: 1309
+Episode: 40, Score: 0, Reward: 36.0, Epsilon: 0.9212, Best: 0, Steps: 1733
+Episode: 50, Score: 0, Reward: 36.0, Epsilon: 0.9029, Best: 0, Steps: 2156
+Episode: 60, Score: 0, Reward: 34.0, Epsilon: 0.8850, Best: 0, Steps: 2577
+Episode: 70, Score: 0, Reward: 39.0, Epsilon: 0.8675, Best: 0, Steps: 2997
+Episode: 80, Score: 0, Reward: 34.0, Epsilon: 0.8503, Best: 0, Steps: 3412
+Episode: 90, Score: 0, Reward: 34.0, Epsilon: 0.8334, Best: 0, Steps: 3829
+Episode: 100, Score: 0, Reward: 35.0, Epsilon: 0.8169, Best: 0, Steps: 4240
+Episode: 110, Score: 0, Reward: 37.0, Epsilon: 0.8007, Best: 0, Steps: 4646
+Episode: 120, Score: 0, Reward: 35.0, Epsilon: 0.7849, Best: 0, Steps: 5055
+Episode: 130, Score: 0, Reward: 36.0, Epsilon: 0.7693, Best: 0, Steps: 5463
+Episode: 140, Score: 0, Reward: 35.0, Epsilon: 0.7541, Best: 0, Steps: 5867
+Episode: 150, Score: 0, Reward: 35.0, Epsilon: 0.7391, Best: 0, Steps: 6280
+Episode: 160, Score: 0, Reward: 34.0, Epsilon: 0.7245, Best: 0, Steps: 6692
+Episode: 170, Score: 0, Reward: 34.0, Epsilon: 0.7101, Best: 0, Steps: 7100
+Episode: 180, Score: 0, Reward: 37.0, Epsilon: 0.6960, Best: 0, Steps: 7513
+Episode: 190, Score: 0, Reward: 33.0, Epsilon: 0.6822, Best: 0, Steps: 7921
+Episode: 200, Score: 0, Reward: 35.0, Epsilon: 0.6687, Best: 0, Steps: 8337
+Episode: 210, Score: 0, Reward: 33.0, Epsilon: 0.6555, Best: 0, Steps: 8762
+Episode: 220, Score: 0, Reward: 35.0, Epsilon: 0.6425, Best: 0, Steps: 9176
+Episode: 230, Score: 0, Reward: 34.0, Epsilon: 0.6297, Best: 0, Steps: 9630
+Episode: 240, Score: 0, Reward: 38.0, Epsilon: 0.6172, Best: 0, Steps: 10043
+Episode: 250, Score: 0, Reward: 34.0, Epsilon: 0.6050, Best: 0, Steps: 10452
+Episode: 260, Score: 0, Reward: 36.0, Epsilon: 0.5930, Best: 0, Steps: 10860
+Episode: 270, Score: 0, Reward: 37.0, Epsilon: 0.5813, Best: 0, Steps: 11306
+Episode: 280, Score: 0, Reward: 35.0, Epsilon: 0.5697, Best: 0, Steps: 11747
+Episode: 290, Score: 0, Reward: 34.0, Epsilon: 0.5585, Best: 0, Steps: 12166
+Episode: 300, Score: 0, Reward: 39.0, Epsilon: 0.5474, Best: 0, Steps: 12606
+Episode: 310, Score: 0, Reward: 40.0, Epsilon: 0.5365, Best: 0, Steps: 13043
+Episode: 320, Score: 0, Reward: 35.0, Epsilon: 0.5259, Best: 0, Steps: 13486
+Episode: 330, Score: 0, Reward: 37.0, Epsilon: 0.5155, Best: 0, Steps: 13912
+Episode: 340, Score: 0, Reward: 36.0, Epsilon: 0.5053, Best: 0, Steps: 14358
+Episode: 350, Score: 0, Reward: 38.0, Epsilon: 0.4952, Best: 0, Steps: 14838
+Episode: 360, Score: 0, Reward: 39.0, Epsilon: 0.4854, Best: 0, Steps: 15344
+Episode: 370, Score: 0, Reward: 36.0, Epsilon: 0.4758, Best: 0, Steps: 15821
+Episode: 380, Score: 0, Reward: 56.0, Epsilon: 0.4664, Best: 0, Steps: 16343
+Episode: 390, Score: 0, Reward: 59.0, Epsilon: 0.4571, Best: 0, Steps: 16889
+Episode: 400, Score: 0, Reward: 38.0, Epsilon: 0.4481, Best: 0, Steps: 17393
+Episode: 410, Score: 0, Reward: 39.0, Epsilon: 0.4392, Best: 0, Steps: 17894
+Episode: 420, Score: 0, Reward: 47.0, Epsilon: 0.4305, Best: 0, Steps: 18411
+Episode: 430, Score: 0, Reward: 46.0, Epsilon: 0.4220, Best: 0, Steps: 18978
+Episode: 440, Score: 0, Reward: 62.0, Epsilon: 0.4136, Best: 0, Steps: 19527
+Episode: 450, Score: 0, Reward: 46.0, Epsilon: 0.4054, Best: 0, Steps: 20147
+Episode: 460, Score: 0, Reward: 60.0, Epsilon: 0.3974, Best: 0, Steps: 20682
+Episode: 470, Score: 0, Reward: 51.0, Epsilon: 0.3895, Best: 0, Steps: 21277
+Episode: 480, Score: 0, Reward: 50.0, Epsilon: 0.3818, Best: 0, Steps: 21887
+Episode: 490, Score: 0, Reward: 51.0, Epsilon: 0.3742, Best: 0, Steps: 22504
+Episode: 500, Score: 0, Reward: 52.0, Epsilon: 0.3668, Best: 0, Steps: 23126
+Episode: 510, Score: 0, Reward: 76.0, Epsilon: 0.3595, Best: 0, Steps: 23735
+Episode: 520, Score: 0, Reward: 51.0, Epsilon: 0.3524, Best: 0, Steps: 24369
+Episode: 530, Score: 0, Reward: 72.0, Epsilon: 0.3454, Best: 0, Steps: 24977
+Episode: 540, Score: 0, Reward: 74.0, Epsilon: 0.3386, Best: 0, Steps: 25558
+Episode: 550, Score: 0, Reward: 52.0, Epsilon: 0.3318, Best: 0, Steps: 26138
+Episode: 560, Score: 0, Reward: 64.0, Epsilon: 0.3253, Best: 0, Steps: 26746
+Episode: 570, Score: 0, Reward: 55.0, Epsilon: 0.3188, Best: 0, Steps: 27366
+Episode: 580, Score: 0, Reward: 60.0, Epsilon: 0.3125, Best: 0, Steps: 28039
+Episode: 590, Score: 0, Reward: 59.0, Epsilon: 0.3063, Best: 0, Steps: 28679
+Episode: 600, Score: 0, Reward: 48.0, Epsilon: 0.3002, Best: 0, Steps: 29305
+Episode: 610, Score: 0, Reward: 46.0, Epsilon: 0.2943, Best: 0, Steps: 29929
+Episode: 620, Score: 0, Reward: 44.0, Epsilon: 0.2884, Best: 0, Steps: 30665
+Episode: 630, Score: 0, Reward: 52.0, Epsilon: 0.2827, Best: 0, Steps: 31325
+Episode: 640, Score: 0, Reward: 80.0, Epsilon: 0.2771, Best: 0, Steps: 32061
+Episode: 650, Score: 0, Reward: 28.0, Epsilon: 0.2716, Best: 0, Steps: 32681
+Episode: 660, Score: 0, Reward: 61.0, Epsilon: 0.2662, Best: 0, Steps: 33331
+Episode: 670, Score: 0, Reward: 71.0, Epsilon: 0.2610, Best: 0, Steps: 33993
+Episode: 680, Score: 0, Reward: 53.0, Epsilon: 0.2558, Best: 0, Steps: 34678
+Episode: 690, Score: 0, Reward: 80.0, Epsilon: 0.2507, Best: 0, Steps: 35409
+Episode: 700, Score: 0, Reward: 80.0, Epsilon: 0.2458, Best: 0, Steps: 36154
+Episode: 710, Score: 0, Reward: 65.0, Epsilon: 0.2409, Best: 0, Steps: 36851
+Episode: 720, Score: 0, Reward: 80.0, Epsilon: 0.2361, Best: 0, Steps: 37553
+Episode: 730, Score: 0, Reward: 80.0, Epsilon: 0.2314, Best: 0, Steps: 38347
+Episode: 740, Score: 0, Reward: 66.0, Epsilon: 0.2268, Best: 0, Steps: 39133
+Episode: 750, Score: 0, Reward: 80.0, Epsilon: 0.2223, Best: 0, Steps: 39875
+Episode: 760, Score: 0, Reward: 71.0, Epsilon: 0.2179, Best: 0, Steps: 40661
+Episode: 770, Score: 0, Reward: 52.0, Epsilon: 0.2136, Best: 0, Steps: 41308
+Episode: 780, Score: 0, Reward: 56.0, Epsilon: 0.2094, Best: 0, Steps: 42118
+Episode: 790, Score: 0, Reward: 55.0, Epsilon: 0.2052, Best: 1, Steps: 43020
+Episode: 800, Score: 0, Reward: 80.0, Epsilon: 0.2012, Best: 1, Steps: 43855
+Episode: 810, Score: 1, Reward: 211.0, Epsilon: 0.1972, Best: 1, Steps: 44709
+Episode: 820, Score: 0, Reward: 80.0, Epsilon: 0.1933, Best: 1, Steps: 45443
+Episode: 830, Score: 0, Reward: 80.0, Epsilon: 0.1894, Best: 1, Steps: 46233
+Early stopping at episode 838 (best score: 1)
+------------------------------------------------------------
+Training completed at 2026-08-09 09:08:45
+Total steps: 46887, Best score: 1
+Saved final model to final_model.pth

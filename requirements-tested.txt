@@ -1,0 +1,8 @@
+# Direct dependency versions used for the recorded CPU experiments, Python 3.12.3.
+# A different PyTorch platform build can use the same public version.
+numpy==2.5.3
+torch==2.13.0
+gymnasium==1.4.0
+pygame==2.5.2
+matplotlib==3.11.2
+pytest==9.1.1
